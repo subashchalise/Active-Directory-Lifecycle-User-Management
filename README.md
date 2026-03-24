@@ -1,26 +1,23 @@
 # 🛠️ Active Directory User Lifecycle & Ticketing Project
 
 ## 📋 Project Overview
-This project simulates a real-world enterprise IT environment. I designed and implemented a tiered **Organizational Unit (OU)** structure from scratch to manage the full user lifecycle—from onboarding to secure termination—while resolving common Help Desk tickets.
-
-### 🚀 Quick Links
-[LinkedIn Profile](https://www.linkedin.com/in/subash-chalise/) | [Project Evidence Files](https://github.com/subashchalise/Active-Directory-User-Lifecycle-Ticketing-Project/tree/main/images)
+This project simulates a real-world enterprise IT environment using the **JobSkillShare (JSS)** professional lab sandbox. I designed and implemented a tiered **Organizational Unit (OU)** structure from scratch to manage the full user lifecycle while resolving common Help Desk tickets.
 
 ---
 
-### 💻 Environment & Tools
+### 💻 Environment & Tools (JSS Sandbox)
 | Component | Specification |
 | :--- | :--- |
-| **Domain Controller** | Windows Server 2022 |
+| **Lab Environment** | JobSkillShare (JSS) IT Pro Sandbox |
+| **Domain Controller** | Windows Server 2022 (ADDS Role) |
 | **Client Workstation** | Windows 11 Pro (Domain Joined) |
 | **Domain Name** | `ACILABS.COM` |
 | **Organization Name** | Forest City Tech Solutions (FCTS) |
-| **Primary Tool** | Active Directory Users and Computers (ADUC) |
 
 ### 🎯 Key Skills Demonstrated
 ![Active Directory](https://img.shields.io/badge/Active%20Directory-Critical-blue?style=for-the-badge&logo=windows)
 ![Windows Server](https://img.shields.io/badge/Windows%20Server-2022-red?style=for-the-badge&logo=microsoft)
-![Troubleshooting](https://img.shields.io/badge/Troubleshooting-Identity%20Access-green?style=for-the-badge&logo=google-cloud)
+![JSS](https://img.shields.io/badge/Lab-JobSkillShare-orange?style=for-the-badge)
 
 ---
 
