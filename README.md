@@ -49,7 +49,7 @@ ACILABS.COM (Root)
 
 
 
-### 🟢 Ticket 1: New Hire Onboarding
+### 🟢 Ticket 1: New Hire Provisioning & Security Onboarding
 > Scenario: A new hire, Sarah Jenkins, requires an account in the IT department. The goal is to provision access following the company's security and OU hierarchy.
 
 #### **Technical Actions:**
