@@ -71,47 +71,31 @@ ACILABS.COM (Root)
 
 ---
 
----
+### 🟡 Ticket 2: Identity Recovery & Security Reset
 
-## 🎫 Ticket 2: Identity Recovery & Security Reset
+> **Scenario:** **Michael Chen (mchen)** from HR reported a total loss of workstation access. His account was locked out after multiple failed login attempts, triggering the domain's security protection.
 
-**Scenario:** Michael Chen (**mchen**) from the **HR Department** reported a total loss of workstation access. After several incorrect login attempts, his account was automatically locked by the domain’s security policy to prevent unauthorized access.
+#### **Technical Actions:**
+* **Security Policy:** Configured an **Account Lockout Threshold** of 3 attempts via the **Default Domain Policy** to protect the environment against brute-force attacks.
+* **Diagnostic:** Identified the lockout status on the Domain Controller by navigating to the **Account** tab in ADUC, confirming the user was restricted from authenticating.
+* **Resolution:** Performed a secure administrative password reset while clearing the `Unlock the user's account` flag to restore immediate access.
+* **Security Maintenance:** Re-enforced the `User must change password at next logon` policy to ensure the new temporary credential was immediately replaced by a private one known only to the user.
 
----
+#### **📸 Technical Evidence:**
 
-### 🔍 Diagnostic: Identifying the Lockout
-To confirm the issue, I accessed the **Active Directory Users and Computers (ADUC)** console and performed the following checks:
+**1. Security Enforcement: Account Lockout Message on Client**
+![Client Lockout](images/ticket3a.png)
+*Verifying the Active Directory security policy successfully blocked access on the Windows 11 workstation.*
 
-* **Account Status:** Navigated to the **Account** tab in Michael’s properties. A system message confirmed: *"This account is currently locked out."*
-* **Deep Dive (Attribute Editor):** Enabled **Advanced Features** to inspect the `badPwdCount` attribute. This confirmed that login attempts had exceeded the domain's threshold, triggering the security lockout.
+**2. Admin Diagnostic: Identifying the Lockout in ADUC**
+![ADUC Lockout Status](images/ticket3b.png)
+*Locating the specific lockout flag within the user's account properties on the Domain Controller.*
 
----
-
-### 🛠️ Technical Implementation
-I performed a secure administrative reset to restore access while maintaining credential privacy:
-
-1.  **Account Unlock:** Used the **Reset Password** tool in ADUC to clear the `ADS_UF_LOCKOUT` flag.
-2.  **Security Flags:** Enabled the following mandatory flags:
-    * **Unlock the user's account:** To restore immediate access.
-    * **User must change password at next logon:** To ensure "Administrative Zero-Knowledge" and uphold the principle of non-repudiation.
-
----
-
-### ✅ Verification & Recovery
-I confirmed the resolution on the **Windows 11 Client** workstation:
-
-* **Authentication Test:** Successfully logged in using a temporary password.
-* **Password Challenge:** The system immediately prompted the user to create a new, private password.
-* **Result:** Access was fully restored, and the account status in Active Directory returned to "Normal."
+**3. Technical Resolution: Resetting Password and Unlocking Account**
+![Unlock Action](images/ticket3c.png)
+*Executing the recovery process to restore user access while maintaining administrative zero-knowledge security.*
 
 ---
-
-### 📸 Technical Evidence
-| Evidence Type | Description |
-| :--- | :--- |
-| **1. Identifying the Lockout** | ![ADUC Account Tab Lockout Message](link-to-your-image-here) |
-| **2. Admin Reset & Unlock** | ![Password Reset Security Flags](link-to-your-image-here) |
-| **3. Client-Side Recovery** | ![Windows 11 Password Change Confirmation](link-to-your-image-here) |
 
 ## 🎫 Ticket 3: Security-Focused User Offboarding
 
