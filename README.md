@@ -97,41 +97,32 @@ ACILABS.COM (Root)
 
 ---
 
-## 🎫 Ticket 3: Security-Focused User Offboarding
+### 🔵 Ticket 3: Internal Transfer & Departmental Move
 
-**Scenario:** An employee, **James Wilson (jwilson)**, has resigned from the Marketing department. My task was to quickly and securely disable his account to ensure he no longer has access to company files or the network.
+> **Scenario:** **Michael Chen** was promoted from HR to the IT Department. I was tasked with migrating his account to the new Organizational Unit and re-aligning his access permissions to match his new technical responsibilities.
 
----
+#### **Technical Actions:**
+* **OU Migration:** Physically migrated the `mchen` user object from the **HR OU** to the **IT OU**. This ensures the account inherits the correct Group Policy Objects (GPOs) and reflects the updated organizational hierarchy.
+* **Permission Re-alignment:** Updated security group memberships by removing Michael from the legacy HR group and adding him to the **IT-Group**. This maintains the **Principle of Least Privilege** by revoking access to sensitive HR resources he no longer requires.
+* **Communication Setup:** Created a new **Distribution Group** (`IT-Support-DL`) and enrolled Michael as a member. This facilitates departmental email communication without granting unnecessary administrative security rights.
+* **Verification:** Validated that both IT team members are consolidated within the same security group and distribution list for streamlined management.
 
-### 🛠️ 1. How I Secured the Account
-In the **Active Directory Users and Computers (ADUC)** console, I followed standard security procedures to lock down the account:
+#### **📸 Technical Evidence:**
 
-* **Account Disablement:** I right-clicked James’s account and selected **Disable Account**. This immediately stops any new login attempts.
-* **Credential Reset:** I reset his password to a random string. This acts as a "double-lock" to make sure his old password cannot be used for any background services or cached logins.
-* **Group Cleanup:** I removed his account from the **Marketing-Group**. This ensures that even if the account were re-enabled by mistake, he would no longer have access to private department folders.
+**1. Directory Migration: User Object in the HR OU (Pre-Move)**
+![OU Pre-Move](images/ticket4a.png)
+*Initial state showing the user object located within the HR Organizational Unit.*
 
----
+**2. OU Migration: User Object Successfully Migrated to the IT OU**
+![OU Post-Move](images/ticket4b.png)
+*Final state showing the user object relocated to the IT OU alongside the IT team.*
 
-### 📂 2. Organizing the Directory
-To keep the "Active" users separate from people who have left the company, I moved the account to a secure location:
+**3. RBAC Update: Granting Access to the `IT-Group`**
+![Group Membership Update](images/ticket4c.png)
+*Updating the security group members list to include the transferred user.*
 
-* **OU Migration:** I moved the `jwilson` user object from the **Marketing OU** into a dedicated **Disabled Users** (or "Leavers") OU.
-* **Why this matters:** This keeps the Active Directory clean and prevents the system from applying new company policies (GPOs) to an account that is no longer in use.
-
----
-
-### ✅ 3. Verification & Testing
-I confirmed the account was fully locked by performing the following checks:
-
-* **Visual Check:** In ADUC, James’s account icon now shows a **small black downward arrow**, confirming the account is officially disabled.
-* **Login Test:** I attempted to log into a **Windows 11 workstation** using the `jwilson` credentials.
-* **Result:** The computer blocked the login and displayed the error: *"Your account has been disabled. Please see your system administrator."* This proves the security steps were effective.
+**4. Communication Infrastructure: Enrolling Members in the `IT-Support-DL`**
+![Distribution Group Membership](images/ticket4d.png)
+*Confirming the user is added to the departmental distribution list for internal communications.*
 
 ---
-
-### 📸 Technical Evidence
-| Evidence Type | Description |
-| :--- | :--- |
-| **1. Account Status** | ![ADUC Screenshot showing jwilson with Disabled Arrow](link-to-your-image-here) |
-| **2. OU Migration** | ![jwilson moved to Disabled Users OU](link-to-your-image-here) |
-| **3. Security Success** | ![Windows 11 "Account Disabled" error message](link-to-your-image-here) |
