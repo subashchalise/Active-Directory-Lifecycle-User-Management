@@ -50,7 +50,7 @@ ACILABS.COM (Root)
 
 
 ### 🟢 Ticket 1: New Hire Onboarding
-> **Scenario: A new hire, Sarah Jenkins, requires an account in the IT department. The goal is to provision access following the company's security and OU hierarchy.
+> Scenario: A new hire, Sarah Jenkins, requires an account in the IT department. The goal is to provision access following the company's security and OU hierarchy.
 
 #### **Technical Actions:**
 * **Provisioning:** Created the user object `sjenkins` within the **FCTS > Users > IT** Organizational Unit.
